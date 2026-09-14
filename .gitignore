@@ -2,6 +2,10 @@
 backend/.conda
 backend/.env
 backend/logs/*
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/detector/__pycache__/
 
 
 # Extension
@@ -34,3 +38,4 @@ frontend/out
 frontend/.next
 frontend/package-lock.json
 frontend/pnpm-lock.yaml
+node_modules
