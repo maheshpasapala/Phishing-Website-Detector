@@ -5,41 +5,22 @@ metadata:
   namespace: phishing-detector
 spec:
   replicas: 2
-
   selector:
     matchLabels:
       app: backend
-
   template:
     metadata:
       labels:
         app: backend
-
     spec:
       containers:
-
-      - name: backend
-
-        image: phishingdetectoracr.azurecr.io/phishing-website-detector-backend:latest
-
-        ports:
-        - containerPort: 5000
-
-        env:
-        - name: MONGO_URI
-          value: "mongodb://mongodb:27017/phishing_detector"
-
-        - name: SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: phishing-secret
-              key: SECRET_KEY
-
-        resources:
-          requests:
-            cpu: "250m"
-            memory: "256Mi"
-
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
+        - name: backend
+          image: phishingdetectoracr.azurecr.io/phishing-website-detector-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongodb:27017/phishing_detector
+            - name: SECRET_KEY
+              value: change-this-local-secret

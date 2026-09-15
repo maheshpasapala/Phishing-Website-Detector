@@ -3,13 +3,11 @@ kind: Service
 metadata:
   name: backend
   namespace: phishing-detector
-
 spec:
   selector:
     app: backend
-
   ports:
-  - port: 5000
-    targetPort: 5000
-
-  type: ClusterIP
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
